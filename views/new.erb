@@ -1,0 +1,18 @@
+<%@images = ["spaghetti",2,3,4,5,6,7,8,9]%>
+<% @images.each do |file_name| %>
+  <% link_to image_tag(image_path("#{@title}#{file_name}.jpg"), home_path %>
+<% end %>
+# controller
+<%images = [ 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpwcqxkY1d_aSWVLt1EKsCgH21i1swlT8sAcSgKhOmyGQbhrn1', 'myimg2.jpg' ]%>
+# execute image_path helper method on each element of images
+<%@paths = images.map {|name| image_path name }%>
+
+# view 
+<% @paths.each do |path| %>
+  <%= link_to image_tag(path), home_path %>
+<% end %>
+<div class="carousel">
+  <% @paths.each do |path| %>
+    <%= link_to image_tag(path), home_path %>
+  <% end %>
+</div >
